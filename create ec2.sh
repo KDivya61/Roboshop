@@ -1,10 +1,11 @@
 #!/bin/bash
 
-##### Change these values ###
+
+##### Change these values ####
 ZONE_ID="Z02187292ICF1N3ZW5LS6"
 DOMAIN="11servers.online"
 SG_NAME="allow-all"
-#############################
+##############################
 
 
 
