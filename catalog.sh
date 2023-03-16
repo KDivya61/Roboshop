@@ -12,7 +12,7 @@ cp configs/catalog.service /etc/systemd/system/catalogue.service
 systemctl daemon-reload
 systemctl enable catalogue 
 systemctl start catalogue
-cp configs/mangodb.repo /etc/yum.repos.d/mongodb.repo
+cp configs/MongoDB.repo /etc/yum.repos.d/mongodb.repo
 
 yum install mongodb-org-shell -y
 mongo --host mongodb.11servers.online </app/schema/catalogue.js
