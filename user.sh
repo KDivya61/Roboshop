@@ -19,11 +19,11 @@ mkdir /app  &>>${log_file}
 fi
 status_check $? 
 print_head "download app content"
-curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip  &>>${log_file}
+curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip  &>>${log_file}
 cd /app  
 status_check $?
 print_head "extracting app content"
-unzip /tmp/catalogue.zip  &>>${log_file}
+unzip /tmp/user.zip  &>>${log_file}
 status_check $?
 print_head "install nodejs dependencies"
 npm install  &>>${log_file}
