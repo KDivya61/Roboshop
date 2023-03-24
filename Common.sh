@@ -6,6 +6,12 @@ print_head() {
     
     echo -e "\e[33m$1\e[0m"
 }
-print_echoo(){
-    echo $?
+status_check(){
+    
+    if [ $1 -eq 0 ]; then
+    echo SUCCESS
+    else
+    echo FAILURE
+    exit 1
+    fi
 }
