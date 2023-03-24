@@ -31,7 +31,7 @@ print_head "install nodejs dependencies"
 npm install  &>>${log_file}
 status_check $?
 print_head "copy systemD service file"
-cp configs/catalog.service /etc/systemd/system/catalogue.service  &>>${log_file}
+cp configs/catalog.service /etc/systemd/system/catalog.service  &>>${log_file}
 status_check $?
 print_head "reload file"
 systemctl daemon-reload  &>>${log_file}
