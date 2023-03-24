@@ -27,12 +27,10 @@ status_check $?
 print_head "download app content"
 curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip  &>>${log_file}
 status_check $?
-
-
+cd /app  
 
 print_head "extracting app content"
-cd /app &>>${log_file}
-unzip /tmp/user.zip &>>${log_file}
+unzip /tmp/user.zip  &>>${log_file}
 status_check $?
 
 print_head "install nodejs dependencies"
