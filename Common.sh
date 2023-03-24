@@ -6,3 +6,6 @@ print_head() {
     
     echo -e "\e[33m$1\e[0m"
 }
+print_echoo(){
+    echo $?
+}
