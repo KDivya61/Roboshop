@@ -37,10 +37,10 @@ print_head "reload file"
 systemctl daemon-reload  &>>${log_file}
 status_check $?
 print_head "enable catalog server"
-systemctl enable catalogue  &>>${log_file}
+systemctl enable catalog  &>>${log_file}
 status_check $?
 print_head "start catalog server"
-systemctl start catalogue  &>>${log_file}
+systemctl start catalog  &>>${log_file}
 status_check $?
 print_head "copy mongodb repo file"
 cp  ${code_dir}/configs/MongoDB.repo /etc/yum.repos.d/mongodb.repo  &>>${log_file}
