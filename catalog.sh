@@ -39,15 +39,16 @@ status_check $?
 print_head "enable catalog server"
 systemctl enable catalog  &>>${log_file}
 status_check $?
-print_head "start catalog server"
+print_head "start the catalog server"
 systemctl start catalog  &>>${log_file}
 status_check $?
-print_head "copy mongodb repo file"
+print_head "copy the  mongodb repo file"
 cp  ${code_dir}/configs/MongoDB.repo /etc/yum.repos.d/mongodb.repo  &>>${log_file}
 status_check $?
-print_head "install mongodb"
+print_head "install mongodb database"
 yum install mongodb-org-shell -y  &>>${log_file}
 status_check $?
-print_head "Load schema"
+print_head "Load the schema"
+
 mongo --host mongodb.11servers.online </app/schema/catalogue.js  &>>${log_file}
 status_check $?
