@@ -31,7 +31,7 @@ print_head "install nodejs dependencies"
 npm install  &>>${log_file}
 status_check $?
 print_head "copy systemD service file"
-cp configs/catalog.service /etc/systemd/system/catalog.service  &>>${log_file}
+cp ${code_dir}/configs/catalog.service /etc/systemd/system/catalog.service  &>>${log_file}
 status_check $?
 print_head "reload file"
 systemctl daemon-reload  &>>${log_file}
@@ -43,7 +43,7 @@ print_head "start catalog server"
 systemctl start catalogue  &>>${log_file}
 status_check $?
 print_head "copy mongodb repo file"
-cp configs/MongoDB.repo /etc/yum.repos.d/mongodb.repo  &>>${log_file}
+cp  ${code_dir}/configs/MongoDB.repo /etc/yum.repos.d/mongodb.repo  &>>${log_file}
 status_check $?
 print_head "install mongodb"
 yum install mongodb-org-shell -y  &>>${log_file}
