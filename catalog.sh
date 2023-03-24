@@ -13,7 +13,9 @@ useradd roboshop  &>>${log_file}
 fi
 status_check $?
 print_head "add applic directory"
+if [ ! -d /app]; then
 mkdir /app  &>>${log_file}
+fi
 status_check $?
 print_head "remove old content"
 rm -rf /app/*  &>>${log_file}
