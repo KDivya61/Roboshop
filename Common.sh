@@ -28,7 +28,7 @@ yum install mongodb-org-shell -y  &>>${log_file}
 status_check $?
 
 print_head "Load the schema"
-mongo --host mongodb.11servers.online </app/schema/{component}.js  &>>${log_file}
+mongo --host mongodb.11servers.online </app/schema/${component}.js  &>>${log_file}
 status_check $?
 fi
 }
