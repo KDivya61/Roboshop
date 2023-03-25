@@ -16,7 +16,25 @@ status_check(){
     exit 1
     fi
 }
-NODE JS(){
+Schema_setup()
+{
+    if [ "${schema_type}" == "mongo"]; then
+    print_head "copy the  mongodb repo file"
+cp  ${code_dir}/configs/MongoDB.repo /etc/yum.repos.d/mongodb.repo  &>>${log_file}
+status_check $?
+
+print_head "install mongodb database"
+yum install mongodb-org-shell -y  &>>${log_file}
+status_check $?
+
+print_head "Load the schema"
+mongo --host mongodb.11servers.online </app/schema/{component}.js  &>>${log_file}
+status_check $?
+fi
+}
+
+nodejs()
+{
     print_head "configure NOde Js repo"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash  &>>${log_file}
 status_check $?
@@ -63,15 +81,7 @@ status_check $?
 print_head "start the catalog server"
 systemctl start {component}  &>>${log_file}
 status_check $?
-print_head "copy the  mongodb repo file"
-cp  ${code_dir}/configs/MongoDB.repo /etc/yum.repos.d/mongodb.repo  &>>${log_file}
-status_check $?
-print_head "install mongodb database"
-yum install mongodb-org-shell -y  &>>${log_file}
-status_check $?
 
-print_head "Load the schema"
-mongo --host mongodb.11servers.online </app/schema/{component}.js  &>>${log_file}
-status_check $?
+Schema_setup
 
 }
