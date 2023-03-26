@@ -11,6 +11,11 @@ print_head "disabling mysql older version"
 dnf module disable mysql -y &>>${log_file}
 status_check $?
 
+print_head "copy mysql repo"
+cp  ${code_dir}/configs/mysql.repo /etc/yum.repos.d/mysql.repo &>>${log_file}
+status_check $?
+
+
 print_head "install mysql server"
 yum install mysql-community-server -y &>>${log_file}
 status_check $?
