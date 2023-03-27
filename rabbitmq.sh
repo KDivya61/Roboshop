@@ -1,7 +1,7 @@
 ource Common.sh
 roboshop_app_password=$1
 if [ "${roboshop_app_password}" == "mysql" ]; then
-echo -e "\e[33mmissing pwd\e[0m"
+echo -e "\e[33missing rabbitmq app pwd\e[0m"
 exit 1
 fi
 print_head "setup erlang repos"
