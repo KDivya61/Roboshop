@@ -6,6 +6,6 @@ echo -e "\e[33mmissing pwd\e[0m"
 exit 1
 fi
 
-component=catalogue
-schema_type="mongo"
-nodejs
+component=shipping
+schema_type="mysql"
+java
