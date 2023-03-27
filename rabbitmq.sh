@@ -35,7 +35,7 @@ status_check $?
 
 print_head "add app user"
 rabbitmqctl list_users | grep roboshop &>>${log_file}
-if [ $1 -ne 0 ]; then
+if [ $? -ne 0 ]; then
 rabbitmqctl set_user_tags roboshop administrator &>>${log_file}
 fi
 status_check $?
