@@ -34,7 +34,10 @@ rabbitmqctl add_user roboshop ${roboshop_app_password} &>>${log_file}
 status_check $?
 
 print_head "add app user"
+rabbitmqctl list_users | grep roboshop &>>${log_file}
+if [ $1 -ne 0 ]; then
 rabbitmqctl set_user_tags roboshop administrator &>>${log_file}
+fi
 status_check $?
 
 print_head "configure app permisiions"
